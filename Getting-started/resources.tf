@@ -17,7 +17,7 @@ resource "spacelift_stack" "managed" {
   administrative = true
   description = "Your first stack managed by Terraform"
   repository   = "intermediate-repo"
-  branch       = "mai"
+  branch       = "mainn"
   project_root = "Drift-Detection-Stack"
   space_id    = spacelift_space.intermediate-repo.id
   depends_on  = [data.spacelift_current_stack.this]
