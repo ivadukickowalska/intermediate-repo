@@ -54,7 +54,7 @@ The project root points to the directory within the repo where the project shoul
 
 1. Create an admin API key in the intermediate-repo space.
 2. Save these variables on the private worker stack:
-   - `TF_VAR_spacelift_api_key`
+   - `TF_VAR_spacelift_api_key_id`
    - `TF_VAR_spacelift_key_secret`
    - `TF_VAR_spacelift_api_endpoint` (https://<accountname>.app.spacelift.io)
 
