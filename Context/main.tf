@@ -1,11 +1,3 @@
-terraform {
-  required_providers {
-    spacelift = {
-      source = "spacelift-io/spacelift"
-    }
-  }
-}
-
 data "spacelift_space_by_path" "intermediate-repo" {
   space_path = "root/intermediate-repo"
 }
