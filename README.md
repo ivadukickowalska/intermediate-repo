@@ -31,7 +31,7 @@ The project root points to the directory within the repo where the project shoul
 
 2. Trigger this stack.
 
-### Explanation of What is Happening
+### Explanation of resources being created:
 
 <details>
 <summary>Click to expand</summary>
