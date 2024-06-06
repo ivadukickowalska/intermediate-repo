@@ -13,7 +13,7 @@ resource "spacelift_stack" "drift_detection_example" {
   name              = "Stack with drift detection enabled"
   repository        = "intermediate-repo"
   branch            = "main"
-  project_root      = "S3-Bucket"
+  project_root      = "Context"
   worker_pool_id    = var.worker_pool_id
 }
 
