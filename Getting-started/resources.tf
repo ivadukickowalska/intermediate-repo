@@ -12,12 +12,12 @@ resource "spacelift_space" "intermediate-repo" {
   description = "All the resources for this intermediate repo will be created here."
 }
 
-resource "spacelift_stack" "managed" {
+resource "spacelift_sack" "managed" {
   name        = "Stack to create stack with drift detection"
   administrative = true
   description = "Your first stack managed by Terraform"
   repository   = "intermediate-repo"
-  branch       = "mai"
+  branch       = "main"
   project_root = "Drift-Detection-Stack"
   space_id    = spacelift_space.intermediate-repo.id
   depends_on  = [data.spacelift_current_stack.this]
