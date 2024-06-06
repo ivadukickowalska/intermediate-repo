@@ -8,7 +8,7 @@ output "space_id" {
 resource "spacelift_stack" "infra" {
   branch       = "main"
   name         = "Infrastructure stack"
-  space_id          = data.spacelift_space_by_path.starter_repo.id
+  space_id          = data.spacelift_space_by_path.intermediate-repo.id
   repository   = "intermediate-repo"
   project_root = "Stack-Dependencies/Infra"
 }
@@ -16,7 +16,7 @@ resource "spacelift_stack" "infra" {
 resource "spacelift_stack" "app" {
   branch       = "main"
   name         = "Application stack"
-  space_id          = data.spacelift_space_by_path.starter_repo.id
+  space_id          = data.spacelift_space_by_path.intermediate-repo.id
   repository   = "intermediate-repo"
   project_root = "Stack-Dependencies/App"
 }
