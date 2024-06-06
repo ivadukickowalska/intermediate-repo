@@ -1,0 +1,5 @@
+version: "2"
+
+stack_defaults:
+ environment:
+            AWS_REGION: eu-west-1
