@@ -10,6 +10,7 @@ resource "spacelift_stack" "drift_detection_example" {
   space_id          = data.spacelift_space_by_path.intermediate-repo.id
   description       = "Provisions a stack with drift detection"
   name              = "Stack with drift detection enabled"
+  administrative = true
   repository        = "intermediate-repo"
   branch            = "main"
   project_root      = "Context"
