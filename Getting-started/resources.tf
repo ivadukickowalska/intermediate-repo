@@ -12,7 +12,7 @@ resource "spacelift_space" "intermediate-repo" {
   description = "All the resources for this intermediate repo will be created here."
 }
 
-resource "spacelift_sack" "managed" {
+resource "spacelift_stack" "managed" {
   name        = "Stack to create stack with drift detection"
   administrative = true
   description = "Your first stack managed by Terraform"

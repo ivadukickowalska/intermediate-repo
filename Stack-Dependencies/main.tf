@@ -13,7 +13,7 @@ resource "spacelift_stack" "infra" {
   project_root = "Stack-Dependencies/Infra"
 }
 
-resource "spacelift_stack" "app" {
+resource "spaceft_stack" "app" {
   branch       = "main"
   name         = "Application stack"
   space_id          = data.spacelift_space_by_path.intermediate-repo.id
