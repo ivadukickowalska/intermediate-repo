@@ -1,4 +1,21 @@
-# Random string suffix for naming resource's
+
+# Spacelift worker pool module
+module "my_workerpool" {
+  source = "github.com/spacelift-io/terraform-aws-spacelift-workerpool-on-ec2?ref=v2.3.1"
+  configuration = <<-EOT
+    export SPACELIFT_TOKEN="${var.worker_pool_config}"
+    export SPACELIFT_POOL_PRIVATE_KEY="${var.worker_pool_private_key}"
+  EOT
+  min_size          = 1
+  max_size          = 5
+  worker_pool_id    = var.worker_pool_id
+  security_groups   = [aws_security_group.main.id]
+  vpc_subnets       = [aws_subnet.private.id, aws_subnet.public.id]
+  spacelift_api_key_secret = var.spacelift_api_key_secret
+  spacelift_api_key_endpoint = var.spacelift_api_key_endpoint
+  spacelift_api_key_id = var.spacelift_api_key_id
+}
+
 resource "random_string" "suffix" {
   length  = 8
   special = false
@@ -123,20 +140,4 @@ resource "aws_security_group_rule" "ingress_rule_3" {
   cidr_blocks       = ["52.49.218.181/32"]
   description       = "Allow ingress from Spacelift IP 52.49.218.181"
   security_group_id = aws_security_group.main.id
-}
-# Spacelift worker pool module
-module "my_workerpool" {
-  source = "github.com/spacelift-io/terraform-aws-spacelift-workerpool-on-ec2?ref=v2.3.1"
-  configuration = <<-EOT
-    export SPACELIFT_TOKEN="${var.worker_pool_config}"
-    export SPACELIFT_POOL_PRIVATE_KEY="${var.worker_pool_private_key}"
-  EOT
-  min_size          = 1
-  max_size          = 5
-  worker_pool_id    = var.worker_pool_id
-  security_groups   = [aws_security_group.main.id]
-  vpc_subnets       = [aws_subnet.private.id, aws_subnet.public.id]
-  spacelift_api_key_secret = var.spacelift_api_key_secret
-  spacelift_api_key_endpoint = var.spacelift_api_key_endpoint
-  spacelift_api_key_id = var.spacelift_api_key_id
 }
